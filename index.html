@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Ranuu 🤍🦢</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family: Arial, sans-serif;
+}
+
+body{
+overflow-x:hidden;
+background:#ffdce8;
+color:white;
+}
+
+.page{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:20px;
+position:relative;
+}
+
+.bg{
+background-image:url(ranuu.jpg);
+background-size:cover;
+background-position:center;
+}
+
+.bg::before{
+content:"";
+position:absolute;
+inset:0;
+backdrop-filter:blur(10px);
+background:rgba(255,192,203,0.35);
+}
+
+.card{
+position:relative;
+z-index:2;
+max-width:700px;
+width:100%;
+padding:30px;
+border-radius:25px;
+background:rgba(255,255,255,0.15);
+backdrop-filter:blur(15px);
+text-align:center;
+border:1px solid rgba(255,255,255,0.3);
+}
+
+h1{
+margin-bottom:15px;
+}
+
+p{
+line-height:1.8;
+}
+
+input{
+width:100%;
+padding:14px;
+margin:10px 0;
+border:none;
+border-radius:12px;
+font-size:16px;
+}
+
+button{
+padding:14px 25px;
+border:none;
+border-radius:20px;
+background:white;
+color:#ff4f88;
+font-weight:bold;
+cursor:pointer;
+font-size:16px;
+}
+
+.spotify-btn{
+display:inline-block;
+margin-top:20px;
+padding:14px 25px;
+background:white;
+color:#ff4f88;
+text-decoration:none;
+border-radius:20px;
+font-weight:bold;
+}
+
+.hidden{
+display:none;
+}
+
+.rose{
+position:fixed;
+top:-50px;
+font-size:22px;
+animation:fall linear infinite;
+opacity:0.8;
+}
+
+@keyframes fall{
+to{
+transform:translateY(110vh);
+}
+}
+</style>
+</head>
+
+<body>
+
+<div id="quizPage" class="page bg">
+
+<div class="card">
+
+<h1>🔒 Birthday Unlock Quiz</h1>
+
+<p><b>Question 1</b></p>
+<p>What is password?</p>
+
+<input id="q1" placeholder="Enter Answer">
+
+<p><b>Question 2</b></p>
+<p>When did we meet face 2 face for first? (Date only)</p>
+
+<input id="q2" placeholder="Enter Answer">
+
+<br><br>
+
+<button onclick="unlockWebsite()">Unlock 🤍</button>
+
+<p id="error" style="margin-top:15px;color:#fff;"></p>
+
+</div>
+
+</div>
+
+<div id="mainPage" class="page bg hidden">
+
+<div class="card">
+
+<h2>🎂 25 June</h2>
+
+<h1>Wishing You A Happiest Birthday Ever Ranuu 🤍🦢</h1>
+
+<br>
+
+<p>
+WISH YOU A HAPPIEST BIRTHDAY EVER RANUU.
+ENJOY YOUR SPECIAL DAY AND STAY HAPPY FOR YOUR WHOLE LIFE 🤍🦢
+</p>
+
+<br>
+
+<p>
+LOVE YOU SO SO MUCH MY LOVE AND I ALSO HATE YOU MORE AND MORE TILL MY LAST BREATH 🫂❤️
+</p>
+
+<br>
+
+<p>
+SO HEADS TO NEXT STEP ON THIS WISH 🌹🤍
+</p>
+
+<br>
+
+<a
+class="spotify-btn"
+href="https://open.spotify.com/track/70OzwqFfeL0Mb3A9MUmA4R?si=Cm73vuDmStK_ZqTXp7z8iQ"
+target="_blank"
+>
+🎵 Open Our Song
+</a>
+
+</div>
+
+</div>
+
+<script>
+
+function unlockWebsite(){
+
+let answer1 =
+document.getElementById("q1")
+.value
+.trim()
+.toLowerCase();
+
+let answer2 =
+document.getElementById("q2")
+.value
+.trim()
+.toLowerCase();
+
+let validPassword =
+(answer1 === "rutum2527" ||
+ answer1 === "yes you can");
+
+let validDate =
+(answer2 === "10 december");
+
+if(validPassword && validDate){
+
+document
+.getElementById("quizPage")
+.classList.add("hidden");
+
+document
+.getElementById("mainPage")
+.classList.remove("hidden");
+
+}else{
+
+document
+.getElementById("error")
+.innerText =
+"Wrong answer ❤️";
+
+}
+
+}
+
+for(let i=0;i<20;i++){
+
+let rose=document.createElement("div");
+
+rose.className="rose";
+
+rose.innerHTML="🌹";
+
+rose.style.left=Math.random()*100+"vw";
+
+rose.style.animationDuration=
+(5+Math.random()*8)+"s";
+
+rose.style.animationDelay=
+Math.random()*5+"s";
+
+document.body.appendChild(rose);
+
+}
+</script>
+
+</body>
+</html>
